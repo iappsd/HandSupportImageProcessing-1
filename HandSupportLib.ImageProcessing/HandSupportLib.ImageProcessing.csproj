@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <PackageId>HandSupportLib.ImageProcessing</PackageId>
+    <Version>1.0.0.1</Version>
+    <Authors>Mohammed Alsailamy</Authors>
+    <Company>beeCode</Company>
+    <Copyright>Copyright 2020 © Mohammed Yahia Alsailamy. All rights reserved.</Copyright>
+    <RepositoryType>Package</RepositoryType>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>image processing tools</Description>
+    <Product>HandSupportLib.ImageProcessing</Product>
+    <PackageIcon>HandSupportLib.png</PackageIcon>
+    <icon>HandSupportLib.png</icon>
+    <RepositoryUrl>https://github.com/myalsailamy/HandSupportLib.ImageProcessing</RepositoryUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <NeutralLanguage></NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\myalsailamy\source\repos\myalsailamy\HandSupportLib5.0\HandSupportLib.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\GitHub\HandSupportLib.ImageProcessing\HandSupportLib.ImageProcessing.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ExtensionsMethods\RecursiveEntityEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HandSupportLib.png" Pack="true" Visible="false" PackagePath="HandSupportLib.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>
+

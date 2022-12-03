@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HandSupportLib.ImageProcessing</name>
+    </assembly>
+    <members>
+        <member name="T:HandSupportLib.ImageProcessing.Enums.ImageEnum">
+            <summary>
+            ترميزات معالجة الصور
+            </summary>
+        </member>
+        <member name="T:HandSupportLib.ImageProcessing.Enums.ImageEnum.TextDirection">
+            <summary>
+            اتجاه لغة النص
+            </summary>
+        </member>
+        <member name="F:HandSupportLib.ImageProcessing.Enums.ImageEnum.TextDirection.RTL">
+            <summary>
+            من اليمين لليسار
+            </summary>
+        </member>
+        <member name="F:HandSupportLib.ImageProcessing.Enums.ImageEnum.TextDirection.LTR">
+            <summary>
+            من اليسار لليمين
+            </summary>
+        </member>
+        <member name="T:HandSupportLib.ImageProcessing.Enums.ImageEnum.HorizontalAlignment">
+            <summary>
+            محاذات النص الأفقية
+            </summary>
+        </member>
+        <member name="F:HandSupportLib.ImageProcessing.Enums.ImageEnum.HorizontalAlignment.Right">
+            <summary>
+            يمين
+            </summary>
+        </member>
+        <member name="F:HandSupportLib.ImageProcessing.Enums.ImageEnum.HorizontalAlignment.Center">
+            <summary>
+            وسط
+            </summary>
+        </member>
+        <member name="F:HandSupportLib.ImageProcessing.Enums.ImageEnum.HorizontalAlignment.Left">
+            <summary>
+            يسار
+            </summary>
+        </member>
+        <member name="T:HandSupportLib.ImageProcessing.Models.DrawImageOptions">
+            <summary>
+            خيارات اضافة صورة
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawImageOptions.PositionX">
+            <summary>
+            احداثية الصورة بال X
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawImageOptions.PositionY">
+            <summary>
+            احداثية الصورة بال Y
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawImageOptions.Width">
+            <summary>
+            عرض الصورة
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawImageOptions.Hight">
+            <summary>
+            ارتفاع الصورة
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawImageOptions.ImagePath">
+            <summary>
+            مسار الصورة في الجهاز
+            </summary>
+        </member>
+        <member name="M:HandSupportLib.ImageProcessing.Models.DrawImageOptions.#ctor">
+            <summary>
+            خيارات رسم الصورة
+            </summary>
+        </member>
+        <member name="M:HandSupportLib.ImageProcessing.Models.DrawImageOptions.#ctor(System.String,System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            خيارات رسم الصورة
+            </summary>
+            <param name="imagePath"></param>
+            <param name="positionX"></param>
+            <param name="positionY"></param>
+            <param name="width"></param>
+            <param name="hight"></param>
+        </member>
+        <member name="T:HandSupportLib.ImageProcessing.Models.DrawTextOptions">
+            <summary>
+            خيارات اضافة نص على الصورة
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.PositionX">
+            <summary>
+            احداثية الصورة بال X
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.PositionY">
+            <summary>
+            احداثية الصورة بال Y
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.HorizontalAlignment">
+            <summary>
+            محاذات ظهور النص
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.Text">
+            <summary>
+            النص
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.FontSize">
+            <summary>
+            حجم النص
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.HexColor">
+            <summary>
+            لون النص بصيغة الهكس
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.FontName">
+            <summary>
+            اسم الخط
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.TextStyle">
+            <summary>
+            تنسيق الخط وأوزانه
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.IsInstalledFont">
+            <summary>
+            استخدام خط مثبت على الجهاز أو السيرفر
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.BackGroundColor">
+            <summary>
+            لون الخلفية بصيغة الهكس التي تظهر خلف النص يمكن التحكم بالشفافية
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.ImageProcessing.Models.DrawTextOptions.TextDirection">
+            <summary>
+            في حالة كان النص يحوي عربي
+            </summary>
+        </member>
+        <member name="M:HandSupportLib.ImageProcessing.Models.DrawTextOptions.#ctor">
+            <summary>
+            خيارات اضافة نص على الصورة
+            </summary>
+        </member>
+        <member name="M:HandSupportLib.ImageProcessing.Models.DrawTextOptions.#ctor(System.Single,System.Single,System.String,System.Int32,System.String,System.Drawing.FontStyle,System.String)">
+            <summary>
+            خيارات اضافة نص على الصورة
+            </summary>
+            <param name="positionX">الموقع على محور ال X</param>
+            <param name="positionY">الموقع على محور ال Y</param>
+            <param name="text">النص</param>
+            <param name="fontSize">حجم الخط</param>
+            <param name="hexColor">لون النص</param>
+            <param name="textStyle">استايل النص</param>
+            <param name="fontName">اسم الخط</param>
+        </member>
+        <member name="M:HandSupportLib.ImageProcessing.Models.DrawTextOptions.#ctor(System.Single,System.Single,HandSupportLib.ImageProcessing.Enums.ImageEnum.HorizontalAlignment,System.String,System.Int32,System.String,System.Drawing.FontStyle,System.String,HandSupportLib.ImageProcessing.Enums.ImageEnum.TextDirection,System.Boolean,System.String)">
+            <summary>
+            خيارات اضافة نص على الصورة
+            </summary>
+            <param name="positionX">الموقع على محور ال X</param>
+            <param name="positionY">الموقع على محور ال Y</param>
+            <param name="horizontalAlignment">محاذات النص</param>
+            <param name="text">النص</param>
+            <param name="fontSize">حجم الخط</param>
+            <param name="hexColor">لون النص</param>
+            <param name="textStyle">استايل النص</param>
+            <param name="positionX"></param>
+            <param name="positionY"></param>
+            <param name="backGroundColor">لون الخلفية</param>
+            <param name="textDirection">اتجاه النص</param>
+            <param name="isInstalledFont">خط افتراضي في نظام الويندوز</param>
+            <param name="fontName">اسم الخط</param>
+        </member>
+        <member name="T:HandSupportLib.Images.GenerateImageCard">
+            <summary>
+            معالجة محتويات الصور
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.Images.GenerateImageCard.FontsDirectoryPath">
+            <summary>
+            مسار مجلد الخط المستخدم على النظام
+            </summary>
+        </member>
+        <member name="P:HandSupportLib.Images.GenerateImageCard.BackGroundCardImagePath">
+            <summary>
+            مسار الصورة المستخدمة كخلفية
+            </summary>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="backgroundCardImagePath">مسار الصورة التي بالخلفية</param>
+            <param name="fontsDirectoryPath">مجلد الخطوط</param>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.GetCardSize">
+            <summary>
+            جلب مقاسات صورة الخلفية
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.GetCardAsBase64(System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawTextOptions},System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawImageOptions})">
+            <summary>
+            انشاء الكرت وارجاعه كنص Base64
+            </summary>
+            <param name="drawTexts">النصوص</param>
+            <param name="drawImages">الصورة</param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.GetCardAsByteArray(System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawTextOptions},System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawImageOptions})">
+            <summary>
+            انشاء الكرت وارجاعه كمصفوفة byte[]
+            </summary>
+            <param name="drawTexts">النصوص</param>
+            <param name="drawImages">الصورة</param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.ClipImageIntoCircle(System.String)">
+            <summary>
+            قص الصورة بشكل دائرة
+            </summary>
+            <param name="imagePath">مسار الصورة</param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.CreateCard(System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawTextOptions},System.Collections.Generic.List{HandSupportLib.ImageProcessing.Models.DrawImageOptions})">
+            <summary>
+            انشاء كرت صورة
+            </summary>
+            <param name="drawTexts"></param>
+            <param name="drawImages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.MeasureString(System.String,System.Drawing.Font)">
+            <summary>
+            جلب مقاسات النص كصورة
+            </summary>
+            <param name="text"></param>
+            <param name="font"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.ConvertImageToBytes(System.Drawing.Bitmap)">
+            <summary>
+            تحويل الصورة بايتات
+            </summary>
+            <param name="bmp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.GetImageBase64(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            جلب الصورة كنص Base64
+            </summary>
+            <param name="bmp"></param>
+            <param name="imageFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.ConvertBase64ToByteArray(System.String)">
+            <summary>
+            تحويل نص الصورة الى مصفوفة byte
+            </summary>
+            <param name="stringInBase64"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.CropBitmap(System.Drawing.Bitmap@,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            قص الصورة
+            </summary>
+            <param name="bmp"></param>
+            <param name="cropX"></param>
+            <param name="cropY"></param>
+            <param name="cropWidth"></param>
+            <param name="cropHeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandSupportLib.Images.GenerateImageCard.ResizeImage(System.Drawing.Bitmap,System.Int32,System.Int32)">
+            <summary>
+            تغيير حجم الصورة
+            </summary>
+            <param name="bmSource"></param>
+            <param name="TargetWidth"></param>
+            <param name="TargetHeight"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
