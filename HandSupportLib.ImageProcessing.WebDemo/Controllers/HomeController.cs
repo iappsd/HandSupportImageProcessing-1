@@ -47,10 +47,10 @@ namespace HandSupportLib.ImageProcessing.WebDemo.Controllers
                  new DrawTextOptions(card.positionX, card.positionY, HorizontalAlignment.Center , card.text , card.fontSize, card.hexColor, FontStyle.Bold, "" , TextDirection.RTL , true ,  "AraHamahAlislam-Regular.otf"),
             };
 
-            var images = new List<DrawImageOptions>() {
-            new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-1.png", 100, cardSize.height - 200, 200, 200),
-            new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-2.png", 400, cardSize.height / 3 , 200, 200),
-            };
+            //var images = new List<DrawImageOptions>() {
+            //new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-1.png", 100, cardSize.height - 200, 200, 200),
+            //new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-2.png", 400, cardSize.height / 3 , 200, 200),
+            //};
 
             var imageResult = generateImageCard.GetCardAsByteArray(texts);
 
