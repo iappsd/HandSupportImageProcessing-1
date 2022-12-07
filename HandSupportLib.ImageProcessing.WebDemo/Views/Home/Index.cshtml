@@ -1,18 +1,92 @@
-﻿@{
+﻿@model CardViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+<style>
 
-<div class="text-center">
+    @@media screen and (min-width: 800px) {
+        .gallery-scroll {
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 450px;
+        }
+
+        .gallery-item {
+            scroll-snap-align: start;
+        }
+    }
+
+</style>
+
+<div class="text-left ">
     <h1 class="display-4">Welcome</h1>
-    <div dir="rtl">
-        @Html.ActionLink("اضافة نصوص الى الصورة", "AddTextToImage", "Home", null, new { @class = "btn btn-success btn-xs btn-block" })
-        @*@Html.ActionLink("انشاء تقرير جدول سريع", "ExportTableToPDF", "Home", null, new { @class = "btn btn-info btn-xs btn-block" })
-        @Html.ActionLink("انشاء تقرير واضافة ملفات pdf جاهز", "BuildReportAndAddExistPDF", "Home", null, new { @class = "btn btn-primary btn-xs btn-block" })
-        @Html.ActionLink("اضافة تقرير الى ملف موجود مسبقاً", "BuildReportUsingExistPDF", "Home", null, new { @class = "btn btn-secondary btn-xs btn-block" })
-        @Html.ActionLink("توثيق التقرير باضافة QRCode", "BuildReportWithQRCode", "Home", null, new { @class = "btn btn-warning btn-xs btn-block" })
-        @Html.ActionLink("اضافة ترويسة ال Header بشكل تلقائي بجميع الصفحات  التقرير", "BuildReportWithReapeaterHeader", "Home", null, new { @class = "btn btn-danger btn-xs btn-block" })
-        @Html.ActionLink("تعبئة نموذج جاهز بالبيانات", "FillFormPDF", "Home", null, new { @class = "btn btn-info btn-xs btn-block" })*@
+    <div class="row">
+        <div class=" col-4">
+            <form asp-action="AddTextToImage" method="get">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="positionX" class="control-label"></label>
+                    <input asp-for="positionX" id="positionX" class="form-control" />
+                    <span asp-validation-for="positionX" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="positionY" class="control-label"></label>
+                    <input asp-for="positionY" id="positionY" class="form-control" />
+                    <span asp-validation-for="positionY" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="fontSize" class="control-label"></label>
+                    <input asp-for="fontSize" class="form-control" />
+                    <span asp-validation-for="fontSize" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="hexColor" class="control-label"></label>
+                    <input asp-for="hexColor" type="color" class="form-control" />
+                    <span asp-validation-for="hexColor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="text" class="control-label"></label>
+                    <input asp-for="text" class="form-control" />
+                    <span asp-validation-for="text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Generate" class="btn btn-block btn-primary" />
+                </div>
+            </form>
+            @*   @Html.ActionLink("اضافة نصوص الى الصورة", "AddTextToImage", "Home", null, new { @class = "btn btn-success btn-xs btn-block" })
+            @Html.ActionLink("انشاء تقرير جدول سريع", "ExportTableToPDF", "Home", null, new { @class = "btn btn-info btn-xs btn-block" })
+            @Html.ActionLink("انشاء تقرير واضافة ملفات pdf جاهز", "BuildReportAndAddExistPDF", "Home", null, new { @class = "btn btn-primary btn-xs btn-block" })
+            @Html.ActionLink("اضافة تقرير الى ملف موجود مسبقاً", "BuildReportUsingExistPDF", "Home", null, new { @class = "btn btn-secondary btn-xs btn-block" })
+            @Html.ActionLink("توثيق التقرير باضافة QRCode", "BuildReportWithQRCode", "Home", null, new { @class = "btn btn-warning btn-xs btn-block" })
+            @Html.ActionLink("اضافة ترويسة ال Header بشكل تلقائي بجميع الصفحات  التقرير", "BuildReportWithReapeaterHeader", "Home", null, new { @class = "btn btn-danger btn-xs btn-block" })
+            @Html.ActionLink("تعبئة نموذج جاهز بالبيانات", "FillFormPDF", "Home", null, new { @class = "btn btn-info btn-xs btn-block" })*@
+        </div>
+        <div class="gallery-scroll col-8">
+            <img src="~/assets/images/land.jpg" />
+        </div>
     </div>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
 </div>
+
+<br />
+
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+           $('img').click(function(e) {
+             var offset = $(this).offset();
+             var x = e.pageX - offset.left ;
+             var y = e.pageY - offset.top ;
+                 $("#positionY").val(y);
+                 $("#positionX").val(x);
+
+                 //alert(`x ${x} : Y ${y}`);
+               });
+             });
+    </script>
+}

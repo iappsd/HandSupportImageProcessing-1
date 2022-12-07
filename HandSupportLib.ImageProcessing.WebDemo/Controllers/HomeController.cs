@@ -4,11 +4,13 @@ using HandSupportLib.ImageProcessing.WebDemo.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using static HandSupportLib.ImageProcessing.Enums.ImageEnum;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HandSupportLib.ImageProcessing.WebDemo.Controllers
 {
@@ -32,30 +34,25 @@ namespace HandSupportLib.ImageProcessing.WebDemo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("AddTextToImage")]
-        public ActionResult AddTextToImage()
+        public ActionResult AddTextToImage(CardViewModel card)
         {
-            var generateImageCard = new GenerateImageCard($"{_environment.WebRootPath}\\assets\\images\\image-card-7.jpg", $"{_environment.WebRootPath}\\assets\\fonts");
+            var generateImageCard = new GenerateImageCard($"{_environment.WebRootPath}\\assets\\images\\land.jpg",
+                $"{_environment.WebRootPath}\\assets\\fonts");
             (int width, int height) cardSize = generateImageCard.GetCardSize();
             int centerX = cardSize.width / 2;
-            var texts = new List<DrawTextOptions>() {
-                 new DrawTextOptions(centerX, 0, HorizontalAlignment.Center , "بسم الله الرحمن الرحيم" , 20, "#fff", FontStyle.Bold, "#000000" , TextDirection.RTL , true ,  "Arial.ttf"),
-                 new DrawTextOptions(centerX, 50, HorizontalAlignment.Right , "بسم الله الرحمن الرحيم" , 20, "#000", FontStyle.Bold, "#2d2393fa" , TextDirection.RTL , true ,  "Arial.ttf"),
-                 new DrawTextOptions(centerX, 100, HorizontalAlignment.Left , "بسم الله الرحمن الرحيم" , 20, "#000", FontStyle.Bold, "#FFFF00" , TextDirection.LTR , true ,  "dg_jory_reg.ttf"),
-                 new DrawTextOptions(0, 150, HorizontalAlignment.Left , "بسم الله الرحمن الرحيم" , 20, "#fff", FontStyle.Bold, "#000000", TextDirection.RTL , false ,  "JF-Flat-Regular.ttf"),
-                 new DrawTextOptions(50, 200, HorizontalAlignment.Left , "تجربة اضافة النص محاذات اليسار مع ازاحه بمقدار 50" , 20, "#EF5091", FontStyle.Bold, "" , TextDirection.RTL , false ,  "dg_jory_reg.ttf"),
-                 new DrawTextOptions(100, 250, HorizontalAlignment.Right , "تجربة اضافة النص محاذات اليمين" , 20, "#14A7D0", FontStyle.Bold, "" , TextDirection.RTL , false ,  "JF-Flat-Regular.ttf"),
-                 new DrawTextOptions(centerX, 400, HorizontalAlignment.Center , "بسم الله الرحمن في الوسط" , 20, "#F67634", FontStyle.Bold, "" , TextDirection.RTL , false ,  "JF-Flat-Regular.ttf"),
-                 new DrawTextOptions(0, 600 , "تغيير لون النص" , 30, "#AC1D04", FontStyle.Bold),
-                 new DrawTextOptions(centerX, 700, HorizontalAlignment.Center , "Mohammed Yahia Mohammed" , 40, "#fff", FontStyle.Bold, "#000000" , TextDirection.LTR , true ,  "Arial.ttf"),
+            //x 1243.6666870117188 : Y 1561.8021240234375
+            double myFontSize = Math.Round(57 * 0.75 + 57, 0);
+            var texts = new List<DrawTextOptions>()
+            {
+                 new DrawTextOptions(card.positionX, card.positionY, HorizontalAlignment.Center , card.text , card.fontSize, card.hexColor, FontStyle.Bold, "" , TextDirection.RTL , true ,  "AraHamahAlislam-Regular.otf"),
             };
 
             var images = new List<DrawImageOptions>() {
-                 new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-1.png", 100, cardSize.height - 200, 200, 200),
-                 new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-2.png", 400, cardSize.height / 3 , 200, 200),
-
+            new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-1.png", 100, cardSize.height - 200, 200, 200),
+            new DrawImageOptions($"{_environment.WebRootPath}\\assets\\logos\\logo-demo-2.png", 400, cardSize.height / 3 , 200, 200),
             };
 
-            var imageResult = generateImageCard.GetCardAsByteArray(texts, images);
+            var imageResult = generateImageCard.GetCardAsByteArray(texts);
 
             return File(imageResult.ToArray(), "application/image", "AddTextToImage-demo.jpg");
         }
@@ -66,10 +63,7 @@ namespace HandSupportLib.ImageProcessing.WebDemo.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
